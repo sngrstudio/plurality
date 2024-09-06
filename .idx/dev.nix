@@ -10,7 +10,9 @@
   ];
 
   # Sets environment variables in the workspace
-  env = {};
+  env = {
+    KEYSTATIC = true;
+  };
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
@@ -21,6 +23,7 @@
       "astro-build.houston"
       "tamasfe.even-better-toml"
       "vscode-icons-team.vscode-icons"
+      "GitHub.vscode-pull-request-github"
     ];
 
     # Enable previews
