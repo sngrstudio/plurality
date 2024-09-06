@@ -1,24 +1,29 @@
 {
   "name": "plurality",
-  "type": "module",
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro build && wrangler pages dev",
     "astro": "astro",
+    "build": "astro check && astro build",
+    "cf-typegen": "wrangler types",
     "deploy": "astro build && wrangler pages deploy",
-    "cf-typegen": "wrangler types"
+    "dev": "astro dev",
+    "preview": "astro build && wrangler pages dev",
+    "start": "astro dev"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.3",
     "@astrojs/cloudflare": "^11.0.4",
+    "@astrojs/react": "^3.6.2",
     "astro": "^4.15.3",
-    "typescript": "^5.5.4"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.3",
     "@cloudflare/workers-types": "^4.20240903.0",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.5.4",
     "wrangler": "^3.75.0"
   }
 }
