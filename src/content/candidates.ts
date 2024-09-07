@@ -7,6 +7,7 @@ export const candidates = defineCollection({
   schema: ({ image }) =>
     z.object({
       campaignName: z.string(),
+      coalitionName: z.string().optional(),
       slogan: z.string().optional(),
       image: image().optional(),
       logo: image().optional(),

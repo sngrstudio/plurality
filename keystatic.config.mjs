@@ -83,6 +83,7 @@ export default config({
             label: 'Slug'
           }
         }),
+        coalitionName: fields.text({ label: 'Nama Koalisi' }),
         slogan: fields.text({ label: 'Slogan' }),
         image: fields.image({
           label: 'Gambar Pasangan Calon',

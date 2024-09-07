@@ -1,5 +1,7 @@
 {
   "campaignName": "Nadalsyah - Supian Hadi",
+  "coalitionName": "Kalteng Hebat",
+  "image": "~/assets/candidates/nadalsyah-supian-hadi/image.jpg",
   "region": "kalimantan-tengah",
   "candidate": [
     {
@@ -21,6 +23,14 @@
     {
       "party": "pdi-p",
       "status": "declaring"
+    },
+    {
+      "party": "ppp",
+      "status": "supporting"
+    },
+    {
+      "party": "partai-hanura",
+      "status": "supporting"
     }
   ]
 }
