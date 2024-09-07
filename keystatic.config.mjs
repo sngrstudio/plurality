@@ -27,10 +27,10 @@ export default config({
           label: 'Tipe Daerah Pemilihan',
           options: [
             { label: 'Provinsi', value: 'province' },
-            { label: 'Kabupaten', value: 'kabupaten' },
-            { label: 'Kota', value: 'kota' }
+            { label: 'Kabupaten', value: 'regency' },
+            { label: 'Kota', value: 'city' }
           ],
-          defaultValue: 'kabupaten'
+          defaultValue: 'regency'
         }),
         logo: fields.image({
           label: 'Logo',

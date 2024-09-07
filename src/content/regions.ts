@@ -7,7 +7,7 @@ export const regions = defineCollection({
   schema: ({ image }) =>
     z.object({
       name: z.string(),
-      type: z.enum(['kabupaten', 'kota']),
+      type: z.enum(['province', 'regency', 'city']),
       logo: image().optional()
     })
 })
