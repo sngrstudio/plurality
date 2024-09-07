@@ -1,6 +1,6 @@
 ---
-import BaseLayout, { type Props as BaseLayoutProps } from "./base.astro";
-import SEO, { type Props as SEOProps } from "./seo.astro";
+import BaseLayout, { type Props as BaseLayoutProps } from './base.astro'
+import SEO, { type Props as SEOProps } from './seo.astro'
 
 export interface Props extends BaseLayoutProps, SEOProps {}
 
@@ -8,12 +8,12 @@ const { title, description, ...props } = Astro.props
 ---
 
 <BaseLayout {...props}>
-    {/* body */}
-	<slot />
+  {/* body */}
+  <slot />
 
-    {/* head */}
-    <Fragment slot="head">
-        <SEO title={title} description={description} />
-        <slot name="head" />
-    </Fragment>
+  {/* head */}
+  <Fragment slot='head'>
+    <SEO title={title} description={description} />
+    <slot name='head' />
+  </Fragment>
 </BaseLayout>
