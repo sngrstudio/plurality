@@ -1,0 +1,36 @@
+{
+  "campaignName": "Agustiar Sabran - Edy Pratowo",
+  "region": "kalimantan-tengah",
+  "candidate": [
+    {
+      "name": "H. Agustiar Sabran",
+      "status": "candidate"
+    },
+    {
+      "name": "Edy Pratowo",
+      "status": "running-mate"
+    }
+  ],
+  "parties": [
+    {
+      "party": "partai-gerindra",
+      "status": "declaring"
+    },
+    {
+      "party": "pan",
+      "status": "declaring"
+    },
+    {
+      "party": "pks",
+      "status": "declaring"
+    },
+    {
+      "party": "psi",
+      "status": "supporting"
+    },
+    {
+      "party": "pkn",
+      "status": "supporting"
+    }
+  ]
+}

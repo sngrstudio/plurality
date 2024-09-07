@@ -1,0 +1,26 @@
+{
+  "campaignName": "Nadalsyah - Supian Hadi",
+  "region": "kalimantan-tengah",
+  "candidate": [
+    {
+      "name": "H. Nadalsyah",
+      "party": "partai-demokrat",
+      "status": "candidate"
+    },
+    {
+      "name": "Supian Hadi",
+      "party": "pdi-p",
+      "status": "running-mate"
+    }
+  ],
+  "parties": [
+    {
+      "party": "partai-demokrat",
+      "status": "declaring"
+    },
+    {
+      "party": "pdi-p",
+      "status": "declaring"
+    }
+  ]
+}
