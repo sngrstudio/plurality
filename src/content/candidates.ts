@@ -1,5 +1,5 @@
 import { glob } from 'astro/loaders'
-import { defineCollection, z, reference } from 'astro:content'
+import { defineCollection, z } from 'astro:content'
 
 export const candidates = defineCollection({
   type: 'content_layer',
@@ -11,17 +11,17 @@ export const candidates = defineCollection({
       slogan: z.string().optional(),
       image: image().optional(),
       logo: image().optional(),
-      region: reference('regions'),
+      region: z.string(),
       candidate: z.array(
         z.object({
           name: z.string(),
-          party: reference('parties').optional(),
+          party: z.string().optional(),
           status: z.enum(['candidate', 'running-mate'])
         })
       ),
       parties: z.array(
         z.object({
-          party: reference('parties'),
+          party: z.string(),
           status: z.enum(['declaring', 'supporting'])
         })
       )

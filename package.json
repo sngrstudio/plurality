@@ -4,34 +4,46 @@
   "type": "module",
   "scripts": {
     "astro": "astro",
-    "build": "astro check && astro build",
+    "build": "conc npm:clean && conc npm:check && conc npm:story:build && astro build",
     "cf-typegen": "wrangler types",
-    "deploy": "astro build && wrangler pages deploy",
+    "check": "conc npm:check:*",
+    "check:astro": "astro check",
+    "check:format": "prettier --check .",
+    "clean": "rimraf dist public/__ladle",
+    "deploy": "conc npm:build && wrangler pages deploy",
     "dev": "astro dev",
     "format": "prettier --write .",
-    "preview": "astro build && wrangler pages dev",
-    "start": "astro dev"
+    "preview": "conc npm:build && wrangler pages dev",
+    "start": "conc npm:dev",
+    "story:build": "ladle build -o public/__ladle --base /__ladle",
+    "story:dev": "ladle serve"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^11.0.4",
     "@astrojs/react": "^3.6.2",
-    "@astrojs/tailwind": "^5.1.0",
+    "@radix-ui/react-checkbox": "^1.1.1",
+    "@radix-ui/react-label": "^2.1.0",
     "astro": "^4.15.3",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "tailwindcss": "^3.4.10"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.3",
     "@cloudflare/workers-types": "^4.20240903.0",
     "@keystatic/astro": "^5.0.0",
     "@keystatic/core": "^0.5.33",
+    "@ladle/react": "^4.1.1",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^8.2.2",
+    "postcss": "^8.4.45",
     "prettier": "^3.3.3",
     "prettier-config-standard": "^7.0.0",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.6",
+    "rimraf": "^6.0.1",
+    "tailwindcss": "^3.4.10",
     "typescript": "^5.5.4",
     "wrangler": "^3.75.0"
   }
