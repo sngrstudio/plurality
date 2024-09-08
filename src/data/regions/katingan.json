@@ -1,4 +1,5 @@
 {
   "name": "Katingan",
-  "type": "regency"
+  "type": "regency",
+  "logo": "~/assets/regions/katingan/logo.png"
 }

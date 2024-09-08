@@ -1,4 +1,5 @@
 {
   "name": "Seruyan",
-  "type": "regency"
+  "type": "regency",
+  "logo": "~/assets/regions/seruyan/logo.png"
 }

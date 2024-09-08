@@ -1,4 +1,5 @@
 {
   "name": "Kotawaringin Barat",
-  "type": "regency"
+  "type": "regency",
+  "logo": "~/assets/regions/kotawaringin-barat/logo.png"
 }

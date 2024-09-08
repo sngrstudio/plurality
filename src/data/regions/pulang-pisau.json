@@ -1,4 +1,5 @@
 {
   "name": "Pulang Pisau",
-  "type": "regency"
+  "type": "regency",
+  "logo": "~/assets/regions/pulang-pisau/logo.png"
 }

@@ -1,4 +1,5 @@
 {
   "name": "Palangka Raya",
-  "type": "city"
+  "type": "city",
+  "logo": "~/assets/regions/palangka-raya/logo.png"
 }

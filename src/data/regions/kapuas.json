@@ -1,4 +1,5 @@
 {
   "name": "Kapuas",
-  "type": "regency"
+  "type": "regency",
+  "logo": "~/assets/regions/kapuas/logo.png"
 }

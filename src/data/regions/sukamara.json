@@ -1,4 +1,5 @@
 {
   "name": "Sukamara",
-  "type": "regency"
+  "type": "regency",
+  "logo": "~/assets/regions/sukamara/logo.png"
 }

@@ -1,4 +1,5 @@
 {
   "name": "Barito Timur",
-  "type": "regency"
+  "type": "regency",
+  "logo": "~/assets/regions/barito-timur/logo.png"
 }

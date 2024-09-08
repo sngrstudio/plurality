@@ -1,4 +1,5 @@
 {
   "name": "Lamandau",
-  "type": "regency"
+  "type": "regency",
+  "logo": "~/assets/regions/lamandau/logo.png"
 }

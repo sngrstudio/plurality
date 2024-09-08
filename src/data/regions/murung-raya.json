@@ -1,4 +1,5 @@
 {
   "name": "Murung Raya",
-  "type": "regency"
+  "type": "regency",
+  "logo": "~/assets/regions/murung-raya/logo.png"
 }

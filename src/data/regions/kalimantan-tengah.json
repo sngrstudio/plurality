@@ -1,4 +1,5 @@
 {
   "name": "Kalimantan Tengah",
-  "type": "province"
+  "type": "province",
+  "logo": "~/assets/regions/kalimantan-tengah/logo.svg"
 }
