@@ -22,7 +22,6 @@
       "github.vscode-github-actions"
       "astro-build.houston"
       "tamasfe.even-better-toml"
-      "vscode-icons-team.vscode-icons"
       "GitHub.vscode-pull-request-github"
     ];
 
