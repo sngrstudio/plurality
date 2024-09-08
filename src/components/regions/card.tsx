@@ -36,7 +36,7 @@ const RegionCard: FC<RegionCardProps> = ({
   return (
     <div
       className={clsx(
-        'flex aspect-square select-none flex-col items-center rounded-lg bg-white/[.4] p-2 shadow',
+        'flex aspect-square select-none flex-col items-center gap-2 rounded-lg bg-zinc-50/[.75] p-4 shadow backdrop-blur-xl',
         className
       )}
       role='button'
@@ -45,17 +45,19 @@ const RegionCard: FC<RegionCardProps> = ({
       ref={ref}
       {...props}
     >
-      <div className='flex flex-1 flex-col justify-center'>
+      <div className='flex flex-1 flex-col justify-end'>
         <img
-          className='aspect-square h-auto w-[50px] object-contain'
+          className='aspect-square h-auto w-[75px] object-contain'
           src={typeof logo === 'string' ? logo : logo.src}
           srcSet={typeof logo === 'string' ? undefined : logo.srcSet.attribute}
           alt=''
           {...(typeof logo === 'string' ? {} : logo.attributes)}
         />
       </div>
-      <div className='flex flex-1 flex-col justify-center'>
-        <span className='text-center font-bold leading-tight'>{name}</span>
+      <div className='flex flex-1 flex-col justify-start'>
+        <span className='text-center text-lg font-bold leading-tight'>
+          {name}
+        </span>
       </div>
     </div>
   )
