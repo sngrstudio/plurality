@@ -31,6 +31,13 @@ jobs:
           path: './node_modules/.astro'
           key: astro-cache-${{ hashFiles('package-lock.json') }}
 
+      - name: Check errors
+        run: bun run check
+
+      - name: Build Ladle
+        if: ${{ github.event_name != 'push' && github.ref_name != 'main' }}
+        run: bun run story:build
+
       - name: Build your site
         run: bun run build
 

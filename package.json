@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "astro": "astro",
-    "build": "conc npm:check && conc npm:story:build && astro build",
+    "build": "astro build",
     "cf-typegen": "wrangler types",
     "check": "conc npm:check:*",
     "check:astro": "astro check",

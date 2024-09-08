@@ -3,5 +3,6 @@
   "IDX.aI.enableCodebaseIndexing": true,
   "tailwindCSS.experimental.classRegex": [
     ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
-  ]
+  ],
+  "IDX.aI.enableInlineCompletion": true
 }
