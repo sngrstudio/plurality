@@ -3,6 +3,7 @@ import type { GetImageResult } from 'astro'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import clsx from 'clsx/lite'
+import { $open } from './state'
 
 export interface RegionCardProps extends HTMLAttributes<HTMLDivElement> {
   name: string
@@ -20,9 +21,8 @@ const RegionCard: FC<RegionCardProps> = ({
 
   useGSAP(() => {
     clickTapTL.current = gsap
-      .timeline()
+      .timeline({ paused: true })
       .to(ref.current, { scale: 0.95, ease: 'power2.out' })
-      .pause()
   })
 
   const handleClickTap = () => {
@@ -31,6 +31,11 @@ const RegionCard: FC<RegionCardProps> = ({
 
   const handleClickTapRelease = () => {
     clickTapTL.current.timeScale(2).reverse()
+  }
+
+  const handleClick = () => {
+    console.log('click')
+    $open.set(false)
   }
 
   return (
@@ -42,6 +47,7 @@ const RegionCard: FC<RegionCardProps> = ({
       role='button'
       onPointerDown={handleClickTap}
       onPointerUp={handleClickTapRelease}
+      onClick={handleClick}
       ref={ref}
       {...props}
     >
