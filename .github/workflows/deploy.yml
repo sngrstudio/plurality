@@ -29,7 +29,7 @@ jobs:
         uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
         with:
           path: './node_modules/.astro'
-          key: astro-cache-${{ hashFiles('package-lock.json') }}
+          key: astro-cache-${{ hashFiles('package-lock.json', 'src/assets/**', 'src/data/**') }}
 
       - name: Check errors
         run: bun run check
