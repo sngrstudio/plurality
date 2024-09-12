@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import Component from './card'
+import { getImage } from 'astro:assets'
+
+interface Props {
+  region: CollectionEntry<'regions'>
+}
+
+const { region } = Astro.props
+const logo = await getImage({
+  src: region.data.logo,
+  widths: [75],
+  sizes: '75px'
+})
+---
+
+<Component id={region.id} name={region.data.name} logo={logo} client:visible />

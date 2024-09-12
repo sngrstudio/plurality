@@ -1,4 +1,4 @@
-import { type Story, type StoryDefault, action } from '@ladle/react'
+import { type Story, type StoryDefault } from '@ladle/react'
 import Component, { type RegionChooserProps } from './chooser'
 import RegionChooserToggleButton from './toggle'
 import Card, { type RegionCardProps } from './card'
@@ -24,7 +24,7 @@ export const ChoiceChooser: Story<RegionChooserArgs> = ({
   <>
     <Component className='' {...props}>
       {Array.from({ length: n }).map((_, i) => (
-        <Card key={i} name={name} logo={logo} action={action('onClick')} />
+        <Card key={i} name={name} logo={logo} id={i.toString()} />
       ))}
     </Component>
     <RegionChooserToggleButton />

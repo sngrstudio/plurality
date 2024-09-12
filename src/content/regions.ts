@@ -8,6 +8,6 @@ export const regions = defineCollection({
     z.object({
       name: z.string(),
       type: z.enum(['province', 'regency', 'city']),
-      logo: image().optional()
+      logo: image()
     })
 })

@@ -1,62 +1,35 @@
-import {
-  type FC,
-  type HTMLAttributes,
-  type MouseEvent as ReactMouseEvent,
-  useRef
-} from 'react'
+import { type FC } from 'react'
 import type { GetImageResult } from 'astro'
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
+import Button, { type ButtonProps } from '../generic/button'
 import clsx from 'clsx/lite'
-import { $open } from './state'
+import { $open, $region } from './state'
 
-export interface RegionCardProps extends HTMLAttributes<HTMLDivElement> {
+export interface RegionCardProps extends ButtonProps {
+  id: string
   name: string
   logo: GetImageResult | string
-  action: (e: ReactMouseEvent<HTMLDivElement, MouseEvent>) => void
 }
 
 const RegionCard: FC<RegionCardProps> = ({
+  id,
   name,
   logo,
-  action,
   className,
   ...props
 }) => {
-  const ref = useRef<HTMLDivElement | null>(null)
-  const clickTapTL = useRef<any>()
-
-  useGSAP(() => {
-    clickTapTL.current = gsap
-      .timeline({ paused: true })
-      .to(ref.current, { scale: 0.95, ease: 'power2.out' })
-  })
-
-  const handleClickTap = () => {
-    clickTapTL.current.play()
-  }
-
-  const handleClickTapRelease = () => {
-    clickTapTL.current.timeScale(2).reverse()
-  }
-
-  const handleClick = (e: ReactMouseEvent<HTMLDivElement, MouseEvent>) => {
-    action(e)
+  const handleClick = () => {
+    $region.set(id)
     $open.set(false)
   }
 
   return (
-    <div
+    <Button
+      {...props}
       className={clsx(
         'flex aspect-square select-none flex-col items-center gap-2 rounded-lg bg-zinc-50/[.75] p-4 shadow backdrop-blur-xl',
         className
       )}
-      role='button'
-      onPointerDown={handleClickTap}
-      onPointerUp={handleClickTapRelease}
       onClick={handleClick}
-      ref={ref}
-      {...props}
     >
       <div className='flex flex-1 flex-col justify-end'>
         <img
@@ -67,12 +40,12 @@ const RegionCard: FC<RegionCardProps> = ({
           {...(typeof logo === 'string' ? {} : logo.attributes)}
         />
       </div>
-      <div className='flex flex-1 flex-col justify-start'>
+      <div className='flex flex-1 flex-col justify-center'>
         <span className='text-center text-lg font-bold leading-tight'>
           {name}
         </span>
       </div>
-    </div>
+    </Button>
   )
 }
 

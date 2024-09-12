@@ -8,7 +8,9 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import clsx from 'clsx/lite'
 
-export const Button: FC<PropsWithChildren<HTMLAttributes<HTMLDivElement>>> = ({
+export interface ButtonProps extends HTMLAttributes<HTMLDivElement> {}
+
+export const Button: FC<PropsWithChildren<ButtonProps>> = ({
   children,
   className,
   ...props
