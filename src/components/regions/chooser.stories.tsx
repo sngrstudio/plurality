@@ -1,8 +1,6 @@
-import type { Story, StoryDefault } from '@ladle/react'
-import Component, {
-  type RegionChooserProps,
-  RegionChooserToggleButton
-} from './chooser'
+import { type Story, type StoryDefault, action } from '@ladle/react'
+import Component, { type RegionChooserProps } from './chooser'
+import RegionChooserToggleButton from './toggle'
 import Card, { type RegionCardProps } from './card'
 import {
   CHOICE_CARD_DEFAULT_NAME,
@@ -26,12 +24,10 @@ export const ChoiceChooser: Story<RegionChooserArgs> = ({
   <>
     <Component className='' {...props}>
       {Array.from({ length: n }).map((_, i) => (
-        <Card key={i} className='' name={name} logo={logo} />
+        <Card key={i} name={name} logo={logo} action={action('onClick')} />
       ))}
     </Component>
-    <RegionChooserToggleButton>
-      <span>Toggle Chooser</span>
-    </RegionChooserToggleButton>
+    <RegionChooserToggleButton />
   </>
 )
 
@@ -39,6 +35,17 @@ ChoiceChooser.args = {
   n: 13,
   name: CHOICE_CARD_DEFAULT_NAME,
   logo: CHOICE_CARD_DEFAULT_LOGO
+}
+
+ChoiceChooser.argTypes = {
+  n: {
+    control: {
+      type: 'range',
+      min: 1,
+      max: 20,
+      step: 1
+    }
+  }
 }
 
 ChoiceChooser.storyName = 'Chooser'

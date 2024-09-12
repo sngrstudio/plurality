@@ -10,21 +10,10 @@ import { $open } from './state'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import clsx from 'clsx/lite'
+import Button from '../generic/button'
+import CloseIcon from '~icons/material-symbols/close-rounded'
 
 export interface RegionChooserProps extends HTMLAttributes<HTMLDivElement> {}
-
-export const RegionChooserToggleButton: FC<PropsWithChildren> = ({
-  children
-}) => {
-  return (
-    <button
-      className='bg-zinc-50/[.75] px-4 py-2 shadow backdrop-blur-xl'
-      onClick={() => $open.set(true)}
-    >
-      {children}
-    </button>
-  )
-}
 
 const RegionChooser: FC<PropsWithChildren<RegionChooserProps>> = ({
   children,
@@ -55,9 +44,22 @@ const RegionChooser: FC<PropsWithChildren<RegionChooserProps>> = ({
       ref={ref}
       {...props}
     >
-      <div className='mx-auto grid h-max max-w-screen-md grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4'>
+      <div className='absolute inset-0 z-[2] grid h-max max-w-screen-md grid-cols-2 gap-2 px-4 pb-4 pt-8 sm:grid-cols-3 md:m-auto md:grid-cols-4 md:p-0'>
+        <div className='col-span-2 mb-4 flex items-center justify-between text-zinc-50 sm:col-span-3 sm:mb-6 md:col-span-4'>
+          <span className='text-lg font-bold sm:text-xl'>
+            Pilih Kabupaten/Kota
+          </span>
+          <Button onClick={() => $open.set(false)}>
+            <CloseIcon />
+          </Button>
+        </div>
         {children}
       </div>
+      <div
+        role='button'
+        className='absolute inset-0 z-[1]'
+        onClick={() => $open.set(false)}
+      />
     </div>
   )
 }

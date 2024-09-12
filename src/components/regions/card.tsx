@@ -1,4 +1,9 @@
-import { type FC, type HTMLAttributes, useRef } from 'react'
+import {
+  type FC,
+  type HTMLAttributes,
+  type MouseEvent as ReactMouseEvent,
+  useRef
+} from 'react'
 import type { GetImageResult } from 'astro'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
@@ -8,11 +13,13 @@ import { $open } from './state'
 export interface RegionCardProps extends HTMLAttributes<HTMLDivElement> {
   name: string
   logo: GetImageResult | string
+  action: (e: ReactMouseEvent<HTMLDivElement, MouseEvent>) => void
 }
 
 const RegionCard: FC<RegionCardProps> = ({
   name,
   logo,
+  action,
   className,
   ...props
 }) => {
@@ -33,8 +40,8 @@ const RegionCard: FC<RegionCardProps> = ({
     clickTapTL.current.timeScale(2).reverse()
   }
 
-  const handleClick = () => {
-    console.log('click')
+  const handleClick = (e: ReactMouseEvent<HTMLDivElement, MouseEvent>) => {
+    action(e)
     $open.set(false)
   }
 
