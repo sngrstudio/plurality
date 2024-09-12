@@ -25,20 +25,24 @@ const RegionChooser: FC<PropsWithChildren<RegionChooserProps>> = ({
   const open = useStore($open)
 
   useGSAP(() => {
-    openTL.current = gsap.timeline({ paused: true }).from(ref.current, {
-      y: '-100%',
-      ease: 'power2.out'
+    openTL.current = gsap.timeline({ paused: true }).to(ref.current, {
+      y: '0%',
+      duration: 0.5,
+      ease: 'power2.out',
+      yoyo: true
     })
   })
 
   useEffect(() => {
-    open ? openTL.current.play() : openTL.current.reverse()
+    open
+      ? openTL.current.timeScale(1).play()
+      : openTL.current.timeScale(2.5).reverse()
   }, [open])
 
   return (
     <div
       className={clsx(
-        'fixed inset-0 z-[99] h-screen overflow-y-scroll bg-zinc-800/[.9] p-4 backdrop-blur md:p-8',
+        'fixed inset-0 z-[99] h-screen translate-y-[-100%] overflow-y-scroll bg-zinc-800/[.9] p-4 backdrop-blur md:p-8',
         className
       )}
       ref={ref}
