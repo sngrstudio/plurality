@@ -1,12 +1,25 @@
 ---
 import PollCard from './card.astro'
 import { getCollection } from 'astro:content'
+import { actions } from 'astro:actions'
 
 const choices = await getCollection('candidate').then((data) =>
   data.sort((a, b) => a.data.number - b.data.number)
 )
+
+const result = Astro.getActionResult(actions.poll)
 ---
 
-<form class='grid grid-cols-2 gap-2 py-4 md:grid-cols-4' action=''>
+<form
+  class='grid grid-cols-2 gap-2 py-4 md:grid-cols-4'
+  action={actions.poll}
+  method='POST'
+>
   {choices.map((choice) => <PollCard choice={choice} />)}
+  <input type='hidden' name='id' value='test-id' />
+  <div class='col-span-2 flex flex-row-reverse md:col-span-4'>
+    <button type='submit'>Tentukan Pilihan</button>
+  </div>
 </form>
+
+{result && <p>{JSON.stringify(result)}</p>}

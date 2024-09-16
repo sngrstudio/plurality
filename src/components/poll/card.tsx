@@ -13,7 +13,11 @@ export interface PollCardProps {
 const PollCard: FC<PollCardProps> = ({ choice, image, coalition }) => {
   return (
     <label className='relative cursor-pointer'>
-      <input type='checkbox' className='peer sr-only' />
+      <input
+        type='checkbox'
+        className='peer sr-only'
+        name={`vote-${choice.data.number}`}
+      />
       <div className='ring ring-transparent peer-checked:ring-blue-500'>
         <div className='flex justify-center'>
           <span className='aspect-[1/1] font-bold'>{choice.data.number}</span>
