@@ -131,6 +131,88 @@ export default config({
           }
         })
       }
+    }),
+    candidate: collection({
+      label: 'Candidate',
+      path: 'src/data/candidate/*',
+      slugField: 'campaignName',
+      format: 'json',
+      schema: {
+        campaignName: fields.slug({
+          name: {
+            label: 'Campaign Name',
+            validation: {
+              isRequired: true,
+              length: {
+                max: 160
+              }
+            }
+          }
+        }),
+        candidates: fields.array(
+          fields.object({
+            name: fields.slug({
+              name: {
+                label: 'Candidate Name',
+                validation: {
+                  isRequired: true
+                }
+              }
+            }),
+            image: fields.image({
+              label: 'Candidate Image',
+              directory: './src/assets/candidate',
+              publicPath: '~/assets/candidate',
+              validation: {
+                isRequired: true
+              }
+            }),
+            status: fields.select({
+              label: 'Candidate Status',
+              options: [
+                { label: 'Main Candidate', value: 'main-candidate' },
+                { label: 'Running Mate', value: 'running-mate' }
+              ],
+              defaultValue: 'main-candidate'
+            }),
+            party: fields.relationship({
+              label: 'Party',
+              collection: 'party'
+            })
+          }),
+          {
+            label: 'Candidates',
+            slugField: 'name',
+            itemLabel: (props) =>
+              props.fields.status.value === 'main-candidate'
+                ? 'Main Candidate'
+                : 'Running Mate'
+          }
+        ),
+        coalition: fields.array(
+          fields.object({
+            party: fields.relationship({
+              label: 'Party',
+              collection: 'party',
+              validation: {
+                isRequired: true
+              }
+            }),
+            status: fields.select({
+              label: 'Party Status',
+              options: [
+                { label: 'Parliament', value: 'parliament' },
+                { label: 'Non-Parliament', value: 'non-parliament' }
+              ],
+              defaultValue: 'parliament'
+            })
+          }),
+          {
+            label: 'Coalition Parties',
+            itemLabel: (props) => props.fields.party.value || ''
+          }
+        )
+      }
     })
   }
 })
