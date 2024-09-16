@@ -4,8 +4,11 @@
   "type": "module",
   "scripts": {
     "astro": "astro",
-    "build": "astro check && astro build",
+    "build": "astro build",
     "cf-typegen": "wrangler types",
+    "check": "conc npm:check:*",
+    "check:astro": "astro check",
+    "check:format": "prettier --check .",
     "deploy": "astro build && wrangler pages deploy",
     "dev": "astro dev",
     "format": "prettier --write .",
@@ -19,6 +22,7 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.3",
     "@cloudflare/workers-types": "^4.20240909.0",
+    "concurrently": "^9.0.1",
     "prettier": "^3.3.3",
     "prettier-config-standard": "^7.0.0",
     "prettier-plugin-astro": "^0.14.1",
