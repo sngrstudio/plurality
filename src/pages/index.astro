@@ -1,20 +1,16 @@
 ---
-import Layout from '~/layouts/layout.astro'
-import Chooser from '~/components/regions/chooser.astro'
-import RegionChooserToggleButton from '~/components/regions/toggle'
+
 ---
 
-<Layout>
-  <main class='flex min-h-screen flex-col items-center justify-center'>
-    <RegionChooserToggleButton client:idle />
-    <Chooser />
-  </main>
-</Layout>
-
-<script>
-  import { $region } from '~/components/regions/state'
-
-  $region.subscribe((region) => {
-    console.log(region)
-  })
-</script>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<h1>Astro</h1>
+	</body>
+</html>
