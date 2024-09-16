@@ -2,10 +2,14 @@
 import Layout from '~/layouts/layout.astro'
 import Poll from '~/components/poll/poll.astro'
 export const prerender = false
+
+const { VOTES } = Astro.locals.runtime.env
+const votes = await VOTES.get('test-id')
 ---
 
 <Layout>
   <main class='mx-auto max-w-screen-lg'>
     <Poll />
+    <pre>{JSON.stringify(votes)}</pre>
   </main>
 </Layout>

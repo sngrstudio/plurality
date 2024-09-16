@@ -16,7 +16,9 @@ const PollCard: FC<PollCardProps> = ({ choice, image, coalition }) => {
       <input
         type='checkbox'
         className='peer sr-only'
-        name={`vote-${choice.data.number}`}
+        name='choice'
+        value={choice.data.number}
+        id={`vote-${choice.data.number}`}
       />
       <div className='ring ring-transparent peer-checked:ring-blue-500'>
         <div className='flex justify-center'>
