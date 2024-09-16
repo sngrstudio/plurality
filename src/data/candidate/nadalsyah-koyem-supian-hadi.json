@@ -1,0 +1,41 @@
+{
+  "campaignName": "Nadalsyah Koyem - Supian Hadi",
+  "number": 3,
+  "image": "~/assets/candidate/nadalsyah-koyem-supian-hadi/image.jpg",
+  "candidates": [
+    {
+      "name": {
+        "name": "H. Nadalsyah Koyem",
+        "slug": "h-nadalsyah-koyem"
+      },
+      "status": "main-candidate",
+      "party": "partai-demokrat"
+    },
+    {
+      "name": {
+        "name": "Supian Hadi, S. Ikom. M.E",
+        "slug": "supian-hadi-s-ikom-m-e"
+      },
+      "status": "running-mate",
+      "party": "pdi-perjuangan"
+    }
+  ],
+  "coalition": [
+    {
+      "party": "pdi-perjuangan",
+      "status": "parliament"
+    },
+    {
+      "party": "partai-demokrat",
+      "status": "parliament"
+    },
+    {
+      "party": "ppp",
+      "status": "parliament"
+    },
+    {
+      "party": "partai-hanura",
+      "status": "parliament"
+    }
+  ]
+}

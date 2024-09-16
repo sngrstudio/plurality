@@ -1,12 +1,13 @@
 {
   "campaignName": "Agustiar Sabran-Edy Pratowo",
+  "number": 1,
+  "image": "~/assets/candidate/agustiar-sabran-edy-pratowo/image.jpg",
   "candidates": [
     {
       "name": {
-        "name": "H. Agustiar Sabran",
-        "slug": "h-agustiar-sabran"
+        "name": "H. Agustiar Sabran A, S. Ikom",
+        "slug": "h-agustiar-sabran-a-s-ikom"
       },
-      "image": "~/assets/candidate/agustiar-sabran-edy-pratowo/candidates/h-agustiar-sabran/image.jpg",
       "status": "main-candidate"
     },
     {
@@ -14,7 +15,6 @@
         "name": "H. Edy Pratowo, S.Sos, M.M",
         "slug": "h-edy-pratowo-s-sos-m-m"
       },
-      "image": "~/assets/candidate/agustiar-sabran-edy-pratowo/candidates/h-edy-pratowo-s-sos-m-m/image.png",
       "status": "running-mate"
     }
   ],

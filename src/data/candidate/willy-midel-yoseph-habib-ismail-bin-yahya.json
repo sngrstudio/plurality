@@ -1,0 +1,37 @@
+{
+  "campaignName": "Willy Midel Yoseph - Habib Ismail bin Yahya",
+  "number": 4,
+  "image": "~/assets/candidate/willy-midel-yoseph-habib-ismail-bin-yahya/image.jpg",
+  "candidates": [
+    {
+      "name": {
+        "name": "Dr. Ir. Willy Midel Yoseph, MM",
+        "slug": "dr-ir-willy-midel-yoseph-mm"
+      },
+      "status": "main-candidate",
+      "party": "partai-nasdem"
+    },
+    {
+      "name": {
+        "name": "Habib Ismail bin Yahya, ME",
+        "slug": "habib-ismail-bin-yahya-me"
+      },
+      "status": "running-mate",
+      "party": "pkb"
+    }
+  ],
+  "coalition": [
+    {
+      "party": "partai-nasdem",
+      "status": "parliament"
+    },
+    {
+      "party": "pkb",
+      "status": "parliament"
+    },
+    {
+      "party": "pbb",
+      "status": "parliament"
+    }
+  ]
+}

@@ -7,13 +7,15 @@ export const candidate = defineCollection({
   schema: ({ image }) =>
     z.object({
       campaignName: z.string(),
+      number: z.number(),
+      image: image().optional(),
+      logo: image().optional(),
       candidates: z.array(
         z.object({
           name: z.object({
             name: z.string(),
             slug: z.string()
           }),
-          image: image(),
           status: z.enum(['main-candidate', 'running-mate']),
           party: z.string().optional()
         })

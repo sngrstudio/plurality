@@ -1,7 +1,10 @@
 ---
 import Layout from '~/layouts/layout.astro'
+import Poll from '~/components/poll/poll.astro'
 ---
 
 <Layout>
-  <h1>Astro</h1>
+  <main class='mx-auto max-w-screen-lg'>
+    <Poll server:defer />
+  </main>
 </Layout>

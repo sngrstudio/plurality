@@ -1,0 +1,36 @@
+---
+import Component from './card'
+import { type CollectionEntry, getEntry } from 'astro:content'
+import { getImage } from 'astro:assets'
+import CANDIDATE_PLACEHOLDER from '~/assets/template/blank.svg'
+
+interface Props {
+  choice: CollectionEntry<'candidate'>
+}
+
+const { choice } = Astro.props
+const image = await getImage({
+  src: choice.data.image || CANDIDATE_PLACEHOLDER,
+  widths: [160],
+  sizes: '160px'
+})
+const coalition = await Promise.all(
+  choice.data.coalition.map(async (p) => {
+    const party = await getEntry('party', p.party)
+    const partyLogo = await getImage({
+      src: party.data.logo,
+      widths: [24],
+      sizes: '24px'
+    })
+    return {
+      party: party.data.name,
+      logo: partyLogo,
+      status: p.status
+    }
+  })
+)
+
+export type Coalition = typeof coalition
+---
+
+<Component choice={choice} image={image} coalition={coalition} client:idle />

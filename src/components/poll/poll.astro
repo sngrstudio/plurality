@@ -1,0 +1,12 @@
+---
+import PollCard from './card.astro'
+import { getCollection } from 'astro:content'
+
+const choices = await getCollection('candidate').then((data) =>
+  data.sort((a, b) => a.data.number - b.data.number)
+)
+---
+
+<form class='grid grid-cols-2 gap-2 py-4 md:grid-cols-4' action=''>
+  {choices.map((choice) => <PollCard choice={choice} />)}
+</form>

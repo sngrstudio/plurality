@@ -149,6 +149,24 @@ export default config({
             }
           }
         }),
+        number: fields.integer({
+          label: 'Assigned Number',
+          validation: {
+            isRequired: true,
+            min: 1,
+            max: 4
+          }
+        }),
+        image: fields.image({
+          label: 'Campaign Image',
+          directory: './src/assets/candidate',
+          publicPath: '~/assets/candidate'
+        }),
+        logo: fields.image({
+          label: 'Campaign Logo',
+          directory: './src/assets/candidate',
+          publicPath: '~/assets/candidate'
+        }),
         candidates: fields.array(
           fields.object({
             name: fields.slug({
@@ -157,14 +175,6 @@ export default config({
                 validation: {
                   isRequired: true
                 }
-              }
-            }),
-            image: fields.image({
-              label: 'Candidate Image',
-              directory: './src/assets/candidate',
-              publicPath: '~/assets/candidate',
-              validation: {
-                isRequired: true
               }
             }),
             status: fields.select({
@@ -183,10 +193,7 @@ export default config({
           {
             label: 'Candidates',
             slugField: 'name',
-            itemLabel: (props) =>
-              props.fields.status.value === 'main-candidate'
-                ? 'Main Candidate'
-                : 'Running Mate'
+            itemLabel: (props) => props.fields.name.value.name
           }
         ),
         coalition: fields.array(
