@@ -56,6 +56,7 @@ export default config({
       path: './src/data/region/*',
       slugField: 'title',
       format: 'json',
+      columns: ['title', 'type'],
       schema: {
         title: fields.slug({
           name: {
@@ -100,6 +101,34 @@ export default config({
           label: 'Region Constituency Size',
           description:
             'Size of the constituency in the region, in number of voters'
+        })
+      }
+    }),
+    party: collection({
+      label: 'Political Party',
+      path: 'src/data/party/*',
+      slugField: 'name',
+      format: 'json',
+      columns: ['name'],
+      schema: {
+        name: fields.slug({
+          name: {
+            label: 'Party Name',
+            validation: {
+              isRequired: true,
+              length: {
+                max: 64
+              }
+            }
+          }
+        }),
+        logo: fields.image({
+          label: 'Party Logo',
+          directory: './src/assets/party',
+          publicPath: '~/assets/party',
+          validation: {
+            isRequired: true
+          }
         })
       }
     })
