@@ -1,6 +1,7 @@
 ---
 import BaseLayout, { type Props as BaseLayoutProps } from './base.astro'
 import SEO, { type Props as SEOProps } from './seo.astro'
+import Header from '~/components/site/header.astro'
 
 export interface Props extends SEOProps, BaseLayoutProps {}
 
@@ -9,6 +10,7 @@ const { title, description, htmlAttributes, ...props } = Astro.props
 
 <BaseLayout htmlAttributes={{ lang: 'id', ...htmlAttributes }} {...props}>
   {/* body */}
+  <Header />
   <slot />
 
   {/* head */}

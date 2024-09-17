@@ -35,7 +35,7 @@ const PollCard: FC<PollCardProps> = ({ choice, image, coalition }) => {
           {choice.data.candidates.map((c, i) => (
             <span
               className={clsx(
-                'text-center text-sm',
+                'line-clamp-1 text-center text-sm',
                 c.status === 'main-candidate' && 'font-bold',
                 c.status === 'running-mate' && 'italic'
               )}

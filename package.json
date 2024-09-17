@@ -21,8 +21,6 @@
     "@astrojs/tailwind": "^5.1.0",
     "@keystatic/astro": "^5.0.0",
     "@keystatic/core": "^0.5.35",
-    "@types/react": "^18.3.5",
-    "@types/react-dom": "^18.3.0",
     "astro": "^4.15.6",
     "clsx": "^2.1.1",
     "react": "^18.3.1",
@@ -32,6 +30,8 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.3",
     "@cloudflare/workers-types": "^4.20240909.0",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
     "concurrently": "^9.0.1",
     "prettier": "^3.3.3",
     "prettier-config-standard": "^7.0.0",

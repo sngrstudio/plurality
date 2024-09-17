@@ -12,7 +12,7 @@ export default defineConfig({
     tailwind(),
     ...(process.env.KEYSTATIC ? [keystatic()] : [])
   ],
-  output: 'hybrid',
+  output: 'server',
   adapter: cloudflare({
     platformProxy: {
       enabled: true

@@ -1,15 +1,19 @@
 ---
 import Layout from '~/layouts/layout.astro'
 import Poll from '~/components/poll/poll.astro'
-export const prerender = false
 
-const { VOTES } = Astro.locals.runtime.env
-const votes = await VOTES.get('test-id')
+const userVotes = await Astro.locals.runtime.env.VOTES.getWithMetadata(
+  Astro.locals.user
+)
+if (userVotes.metadata) {
+  return Astro.redirect('/result', 301)
+}
 ---
 
 <Layout>
-  <main class='mx-auto max-w-screen-lg'>
+  <main
+    class='mx-auto flex min-h-screen max-w-screen-lg flex-col items-center justify-center px-4'
+  >
     <Poll />
-    <pre>{JSON.stringify(votes)}</pre>
   </main>
 </Layout>

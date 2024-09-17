@@ -4,11 +4,16 @@ import { z } from 'astro:schema'
 export const poll = defineAction({
   accept: 'form',
   input: z.object({
-    id: z.string(),
-    choice: z.array(z.string())
+    choice: z.array(z.string()),
+    region: z.string()
   }),
-  handler: async ({ id, choice }, { locals }) => {
+  handler: async ({ choice, region }, { locals }) => {
     const { VOTES } = locals.runtime.env
-    await VOTES.put(id, JSON.stringify(choice))
+    await VOTES.put(locals.user, '', {
+      metadata: {
+        choice,
+        region
+      }
+    })
   }
 })
