@@ -16,12 +16,12 @@
     "start": "astro dev"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^11.0.4",
+    "@astrojs/cloudflare": "^11.0.5",
     "@astrojs/react": "^3.6.2",
-    "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/tailwind": "^5.1.1",
     "@keystatic/astro": "^5.0.0",
     "@keystatic/core": "^0.5.35",
-    "astro": "^4.15.6",
+    "astro": "^4.15.7",
     "clsx": "^2.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
