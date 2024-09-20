@@ -20,8 +20,5 @@ export default defineConfig({
     imageService: 'compile'
   }),
   vite: {},
-  experimental: {
-    contentLayer: true,
-    serverIslands: true
-  }
+  experimental: {}
 })
