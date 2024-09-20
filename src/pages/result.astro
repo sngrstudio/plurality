@@ -1,11 +1,10 @@
 ---
 import Layout from '~/layouts/layout.astro'
-
-const votes = await Astro.locals.runtime.env.VOTES.list()
+import Component from '~/components/result/result'
 ---
 
 <Layout title='Hasil Polling'>
   <main class='mx-auto min-h-screen max-w-screen-lg px-4'>
-    {votes.keys.map((key) => <pre>{JSON.stringify(key.metadata)}</pre>)}
+    <Component client:load />
   </main>
 </Layout>
