@@ -17,10 +17,10 @@ const ResultComponent: FC<{}> = () => {
   const { data, error, isPending } = useQuery({
     queryKey: ['result'],
     queryFn: async () =>
-      (await fetch('/result/data').then((res) => res.json())) as Record<
-        string,
-        number
-      >
+      (await fetch('/result/data').then((res) => res.json())) as Array<{
+        choice: string
+        count: number
+      }>
   })
 
   if (error) {
@@ -31,7 +31,13 @@ const ResultComponent: FC<{}> = () => {
     return <div>Loading...</div>
   }
 
-  return <div>{JSON.stringify(data)}</div>
+  return (
+    <div>
+      {data.map((entry, i) => (
+        <div key={i}>{JSON.stringify(entry)}</div>
+      ))}
+    </div>
+  )
 }
 
 const queryClient = new QueryClient()

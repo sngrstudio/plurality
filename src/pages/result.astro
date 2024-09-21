@@ -1,10 +1,10 @@
 ---
 import Layout from '~/layouts/layout.astro'
-import Component from '~/components/result/result'
+import ResultComponent from '~/components/result/result.astro'
 ---
 
 <Layout title='Hasil Polling'>
   <main class='mx-auto min-h-screen max-w-screen-lg px-4'>
-    <Component client:load />
+    <ResultComponent server:defer />
   </main>
 </Layout>
