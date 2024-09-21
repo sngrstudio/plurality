@@ -1,19 +1,10 @@
 ---
-import Layout from '~/layouts/layout.astro'
-import Poll from '~/components/poll/poll.astro'
-
 const userVotes = await Astro.locals.runtime.env.VOTES.getWithMetadata(
   Astro.locals.user
 )
 if (userVotes.metadata) {
-  return Astro.redirect('/result', 301)
+  return Astro.rewrite('/result')
+} else {
+  return Astro.rewrite('/vote')
 }
 ---
-
-<Layout>
-  <main
-    class='mx-auto flex min-h-screen max-w-screen-lg flex-col items-center justify-center px-4'
-  >
-    <Poll />
-  </main>
-</Layout>
