@@ -1,5 +1,31 @@
 ---
+import { getImage } from 'astro:assets'
 import Component from './result'
+import { getCollection } from 'astro:content'
+
+const candidatesData = await getCollection('candidate')
+const candidates = await Promise.all(
+  candidatesData.map(async (entry) => {
+    return {
+      ...entry,
+      data: {
+        ...entry.data,
+        image: entry.data.image
+          ? await getImage({
+              src: entry.data.image,
+              widths: [240],
+              sizes: '240px'
+            })
+          : undefined,
+        logo: entry.data.logo
+          ? await getImage({ src: entry.data.logo })
+          : undefined
+      }
+    }
+  })
+)
+
+export type Candidates = typeof candidates
 ---
 
-<Component client:load />
+<Component candidates={candidates} client:load />

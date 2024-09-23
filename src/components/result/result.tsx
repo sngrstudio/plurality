@@ -1,19 +1,24 @@
 import type { FC, PropsWithChildren } from 'react'
+import type { Candidates } from './result.astro'
 import {
   QueryClient,
   QueryClientProvider,
   useQuery
 } from '@tanstack/react-query'
 
-const Result: FC<{}> = () => {
+interface ResultProps {
+  candidates: Candidates
+}
+
+const Result: FC<ResultProps> = ({ candidates }) => {
   return (
     <ResultProvider>
-      <ResultComponent />
+      <ResultComponent candidates={candidates} />
     </ResultProvider>
   )
 }
 
-const ResultComponent: FC<{}> = () => {
+const ResultComponent: FC<ResultProps> = ({ candidates }) => {
   const { data, error, isPending } = useQuery({
     queryKey: ['result'],
     queryFn: async () =>
@@ -33,9 +38,26 @@ const ResultComponent: FC<{}> = () => {
 
   return (
     <div>
-      {data.map((entry, i) => (
-        <div key={i}>{JSON.stringify(entry)}</div>
-      ))}
+      {data
+        .sort((a, b) => b.count - a.count)
+        .map((entry, i) => {
+          const candidate = candidates.find((e) => e.id === entry.choice)
+          return (
+            <div key={i}>
+              <div>
+                <img
+                  className='w-[240px]'
+                  src={candidate?.data.image?.src}
+                  alt=''
+                  srcSet={candidate?.data.image?.srcSet.attribute}
+                  {...candidate?.data.image?.attributes}
+                />
+              </div>
+              <div>{candidate?.data.campaignName}</div>
+              <div>{`${entry.count} Suara`}</div>
+            </div>
+          )
+        })}
     </div>
   )
 }
