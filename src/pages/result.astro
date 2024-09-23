@@ -1,0 +1,10 @@
+---
+import Layout from '~/layouts/layout.astro'
+import ResultComponent from '~/components/result/result.astro'
+---
+
+<Layout title='Hasil Suara'>
+  <main class='mx-auto min-h-screen max-w-screen-lg px-4'>
+    <ResultComponent server:defer />
+  </main>
+</Layout>

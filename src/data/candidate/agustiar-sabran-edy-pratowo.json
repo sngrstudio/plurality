@@ -1,0 +1,43 @@
+{
+  "campaignName": "Agustiar Sabran-Edy Pratowo",
+  "number": 3,
+  "image": "~/assets/candidate/agustiar-sabran-edy-pratowo/image.jpg",
+  "candidates": [
+    {
+      "name": {
+        "name": "H. Agustiar Sabran A, S. Ikom",
+        "slug": "h-agustiar-sabran-a-s-ikom"
+      },
+      "status": "main-candidate"
+    },
+    {
+      "name": {
+        "name": "H. Edy Pratowo, S.Sos, M.M",
+        "slug": "h-edy-pratowo-s-sos-m-m"
+      },
+      "status": "running-mate"
+    }
+  ],
+  "coalition": [
+    {
+      "party": "partai-gerindra",
+      "status": "parliament"
+    },
+    {
+      "party": "pks",
+      "status": "parliament"
+    },
+    {
+      "party": "pan",
+      "status": "parliament"
+    },
+    {
+      "party": "psi",
+      "status": "non-parliament"
+    },
+    {
+      "party": "pkn",
+      "status": "non-parliament"
+    }
+  ]
+}

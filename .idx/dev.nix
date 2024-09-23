@@ -10,7 +10,9 @@
   ];
 
   # Sets environment variables in the workspace
-  env = {};
+  env = {
+    KEYSTATIC = true;
+  };
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
@@ -20,7 +22,7 @@
       "github.vscode-github-actions"
       "astro-build.houston"
       "tamasfe.even-better-toml"
-      "vscode-icons-team.vscode-icons"
+      "GitHub.vscode-pull-request-github"
     ];
 
     # Enable previews
@@ -48,10 +50,10 @@
         npm-install = "npm install";
       };
       # Runs when the workspace is (re)started
-      onStart = {
-        # Example: start a background task to watch and re-build backend code
-        # watch-backend = "npm run watch-backend";
-      };
+      # onStart = {
+      #   # Example: start a background task to watch and re-build backend code
+      #   story-dev = "npm run story:dev";
+      # };
     };
   };
 }

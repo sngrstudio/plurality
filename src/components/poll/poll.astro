@@ -1,0 +1,45 @@
+---
+import PollCard from './card.astro'
+import { getCollection } from 'astro:content'
+import { actions } from 'astro:actions'
+
+const choices = await getCollection('candidate').then((data) =>
+  data.sort((a, b) => a.data.number - b.data.number)
+)
+
+const regions = await getCollection(
+  'region',
+  ({ data }) => data.type !== 'main'
+)
+---
+
+<form
+  class='grid grid-cols-2 gap-2 py-4 md:grid-cols-4'
+  action={'/result' + actions.poll}
+  method='POST'
+>
+  {choices.map((choice) => <PollCard choice={choice} />)}
+  <div
+    class='col-span-2 mt-6 flex flex-col items-center justify-between md:col-span-4 md:flex-row'
+  >
+    <div class='flex'>
+      <select
+        class='rounded-full bg-zinc-200 px-4 py-1 ring ring-transparent focus:ring-blue-200'
+        name='region'
+        required
+      >
+        <option value='' disabled selected hidden>Pilih Kabupaten/Kota</option>
+        {
+          regions.map((region) => (
+            <option value={region.id}>{region.data.title}</option>
+          ))
+        }
+      </select>
+    </div>
+    <input
+      type='submit'
+      value='Tentukan Pilihan'
+      class='cursor-pointer rounded-full bg-blue-500 px-4 py-1 text-white ring ring-transparent focus:ring-blue-200 disabled:bg-zinc-200'
+    />
+  </div>
+</form>

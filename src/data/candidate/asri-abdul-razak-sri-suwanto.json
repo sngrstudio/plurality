@@ -1,0 +1,44 @@
+{
+  "campaignName": "ASRI (Abdul Razak - Sri Suwanto)",
+  "number": 4,
+  "image": "~/assets/candidate/asri-abdul-razak-sri-suwanto/image.jpg",
+  "candidates": [
+    {
+      "name": {
+        "name": "Ir. Abdul Razak",
+        "slug": "ir-abdul-razak"
+      },
+      "status": "main-candidate",
+      "party": "partai-golkar"
+    },
+    {
+      "name": {
+        "name": "Ir. Sri Suwanto, M. S",
+        "slug": "ir-sri-suwanto-m-s"
+      },
+      "status": "running-mate"
+    }
+  ],
+  "coalition": [
+    {
+      "party": "partai-golkar",
+      "status": "parliament"
+    },
+    {
+      "party": "partai-perindo",
+      "status": "parliament"
+    },
+    {
+      "party": "partai-gelora",
+      "status": "parliament"
+    },
+    {
+      "party": "partai-buruh",
+      "status": "parliament"
+    },
+    {
+      "party": "partai-ummat",
+      "status": "parliament"
+    }
+  ]
+}
